@@ -32,30 +32,10 @@ function loadParagraph() {
 function handleKeydown(e) {
     inpField.focus();
     if (e.ctrlKey && e.key === "Backspace") {
-        handleCtrlBackspace();
         e.preventDefault();
     }
 }
 
-function handleCtrlBackspace() {
-    let characters = typingText.querySelectorAll("span");
-    while (charIndex > 0 && characters[charIndex - 1].innerText !== " ") {
-        charIndex--;
-        if (characters[charIndex].classList.contains("incorrect")) {
-            mistakes--;
-        }
-        characters[charIndex].classList.remove("correct", "incorrect");
-    }
-    if (charIndex > 0) {
-        charIndex--;
-        characters[charIndex].classList.remove("correct", "incorrect");
-    }
-    characters.forEach(span => span.classList.remove("active"));
-    if (charIndex < characters.length) {
-        characters[charIndex].classList.add("active");
-    }
-    inpField.value = inpField.value.substring(0, inpField.value.lastIndexOf(" "));
-}
 
 function typingF() {
     let characters = typingText.querySelectorAll("span");
