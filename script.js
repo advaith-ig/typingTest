@@ -14,13 +14,13 @@ let timer,
 
 function loadParagraph() {
     typingText.innerHTML = "";
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 50; i++) {
         const ranIndex = Math.floor(Math.random() * words.length);
         words[ranIndex].split("").forEach(char => {
             let span = `<span>${char}</span>`;
             typingText.innerHTML += span;
         });
-        if (i !== 34) {
+        if (i !== 49) {
             typingText.innerHTML += "<span> </span>";
         }
     }
